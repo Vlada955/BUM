@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--destination represents where the navigation should lead-->
+    <item
+        android:id="@+id/item_training"
+        android:icon="@drawable/ic_training_24"
+        android:title="Training"
+        app:showAsAction="ifRoom"
+        app:destination="@id/trainingFragment"/>
+
+    <item
+        android:id="@+id/item_nutrition"
+        android:icon="@drawable/ic_nutrition_24"
+        android:title="Nutrition"
+        app:showAsAction="ifRoom"
+        app:destination="@id/nutritionFragment"/>
+
+    <item
+        android:id="@+id/item_progress"
+        android:icon="@drawable/ic_progress_24"
+        android:title="Progress"
+        app:showAsAction="ifRoom"
+        app:destination="@id/progressFragment"/>
+
+    <item
+        android:id="@+id/item_chat"
+        android:icon="@drawable/ic_chat_24"
+        android:title="Chat"
+        app:showAsAction="ifRoom"
+        app:destination="@id/chatFragment"/>
+
+    <item
+        android:id="@+id/item_profile"
+        android:icon="@drawable/ic_profile_24"
+        android:title="Profile"
+        app:showAsAction="ifRoom"
+        app:destination="@id/profileFragment"/>
+
+</menu>
