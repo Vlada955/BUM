@@ -1,15 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_training"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.TrainingFragment"
-    android:id="@+id/fragment_training">
+    tools:context=".fragments.TrainingFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_training"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Training Fragment"/>
+        android:clipToPadding="false"
+        android:padding="16dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floating_action_button_training_fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/start_yellow"
+        android:outlineAmbientShadowColor="@color/start_yellow"
+        android:outlineSpotShadowColor="@color/start_yellow"
+        android:tint="@color/dim_gray"
+        app:srcCompat="@drawable/ic_add_24" />
+
 
 </FrameLayout>

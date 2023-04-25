@@ -28,8 +28,6 @@ class MainActivity : AppCompatActivity() {
         //Controller
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.findNavController()
-//        navController = Navigation.findNavController(this, R.id.nav_host_fragment)
-
 
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
         bottomNavigationView.setOnNavigationItemSelectedListener {
