@@ -4,6 +4,80 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="8dp"
     tools:context=".TrainingDetailsActivity">
+
+    <EditText
+        android:id="@+id/edit_text_training_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Training Name"
+        android:textColor="@color/forest_green"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/edit_text_training_date"
+        app:layout_constraintEnd_toStartOf="@id/edit_text_training_date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edit_text_training_date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Training Date"
+        android:textColor="@color/forest_green"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/edit_text_training_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/edit_text_training_name"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scroll_view_training_details_activity"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edit_text_training_name">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_exercise_items"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:padding="16dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+    </ScrollView>
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floating_action_button_add_exercise_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/start_yellow"
+        android:outlineAmbientShadowColor="@color/end_yellow"
+        android:outlineSpotShadowColor="@color/end_yellow"
+        android:tint="@color/forest_green"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_add_24" />
+
+    <Button
+        android:id="@+id/button_save"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/start_yellow"
+        android:text="Save"
+        android:textColor="@color/forest_green"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/floating_action_button_add_exercise_item"
+        app:layout_constraintEnd_toStartOf="@id/floating_action_button_add_exercise_item"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/floating_action_button_add_exercise_item"
+        app:layout_constraintVertical_bias="0.5"
+        app:layout_constraintWidth_percent="0.4" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

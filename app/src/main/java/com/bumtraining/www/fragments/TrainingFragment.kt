@@ -39,41 +39,71 @@ class TrainingFragment : Fragment(R.layout.fragment_training) {
         super.onViewCreated(view, savedInstanceState)
 
         var cardItems = mutableListOf(
-            Training("Push Training", "24/04/2023"),
-            Training("Pull Training", "26/04/2023")
+            Training("New Training", "New Date"),
         )
 
         adapter = CardItemAdapter(cardItems)
-        binding.recyclerViewTraining.adapter = adapter
+        binding.recyclerViewTrainingFragment.adapter = adapter
 
         binding.floatingActionButtonTrainingFragment.setOnClickListener {
             addNewCardItem()
         }
+
+
         val itemTouchHelperCallback = CardItemAdapter.CardItemTouchHelperCallback(adapter)
         val itemTouchHelper = ItemTouchHelper(itemTouchHelperCallback)
-        itemTouchHelper.attachToRecyclerView(binding.recyclerViewTraining)
+        itemTouchHelper.attachToRecyclerView(binding.recyclerViewTrainingFragment)
+
+
+
+    fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+    }
+
+        fun onCardItemClick(position: Int) {
+            val intent = Intent(activity, TrainingDetailsActivity::class.java)
+            intent.putExtra("training_name", cardItems[position].name)
+            intent.putExtra("training_date", cardItems[position].date)
+            startActivity(intent)
+        }
 
     }
 
+
+
+
     fun addNewCardItem() {
-        val newCardItem = Training("New Title", "New Description")
+        val newCardItem = Training("New Training", "New Date")
 
         adapter.addCardItem(newCardItem)
 
-        binding.recyclerViewTraining.scrollToPosition(adapter.itemCount - 1)
+        binding.recyclerViewTrainingFragment.scrollToPosition(adapter.itemCount - 1)
 
+    }
+
+    fun editNewCardItem(position: Int, newCardItem: Training) {
+        adapter.cardItems[position] = newCardItem
+        adapter.notifyItemChanged(position)
     }
 
 }
 
-class CardItemAdapter(private val cardItems: MutableList<Training>) :
+class CardItemAdapter(val cardItems: MutableList<Training>) :
     RecyclerView.Adapter<CardItemAdapter.CardItemViewHolder>() {
     class CardItemViewHolder(private var binding: TrainingCardItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(cardItem: Training) {
             binding.textViewTrainingName.text = cardItem.name
             binding.textViewTrainingDate.text = cardItem.date
+
+            //Clicking on card
+            binding.cardViewTraining.setOnClickListener {
+                val intent = Intent(binding.root.context, TrainingDetailsActivity::class.java)
+                binding.root.context.startActivity(intent)
+            }
         }
+
+
     }
 
 
@@ -122,7 +152,6 @@ class CardItemAdapter(private val cardItems: MutableList<Training>) :
             adapter.cardItems.removeAt(position)
             adapter.notifyItemRemoved(position)
         }
-
     }
 }
 
