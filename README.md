@@ -2,7 +2,7 @@
 
 
 
-Excercise app I've started creating as a gift to a friend who helped me a lot with excercise and becoming healthier. Work in progress.
+Exercise app I've started creating as a gift to a friend who helped me a lot with exercise and becoming healthier. Work in progress.
 
 
 ## Start Screen
